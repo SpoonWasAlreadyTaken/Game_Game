@@ -5,12 +5,21 @@ using System;
 
 public class SpeedColl : MonoBehaviour, ICollect
 {
-    public static event Action OnSpeedUpCollected;
+
+    PlayerMover player;
+    public int speedBuff = 1;
+
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMover>();
+    }
+
     public void Collect()
     {
         Debug.Log("Speed Up");
         Destroy(gameObject);
-        OnSpeedUpCollected?.Invoke();
+
+        player.GetComponent<PlayerMover>().IncreaseSpeed(speedBuff);
     }
 
 }

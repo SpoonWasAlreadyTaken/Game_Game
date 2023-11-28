@@ -15,6 +15,17 @@ public class PlayerCombat : MonoBehaviour
     public float attackSpeed = 2f;
     private float nextAttackTime = 0f;
 
+
+    public void IncreaseDamage(int damageBuff)
+    {
+        attackDamage += damageBuff;
+    }
+
+    public void IncreaseAttack(int attackBuff)
+    {
+        attackSpeed += attackBuff;
+    }
+
     void Update()
     {
         if (Time.time >= nextAttackTime)

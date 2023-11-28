@@ -10,16 +10,6 @@ public class PlayerMover : MonoBehaviour
 
     Vector2 movement;
 
-    private void OnEnable()
-    {
-        SpeedColl.OnSpeedUpCollected += IncreaseSpeed;
-    }
-
-    private void OnDisable()
-    {
-        SpeedColl.OnSpeedUpCollected -= IncreaseSpeed;
-    }
-
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -35,9 +25,9 @@ public class PlayerMover : MonoBehaviour
         }
     }
     
-    public void IncreaseSpeed()
+    public void IncreaseSpeed(int speedBuff)
     {
-        moveSpeed++;
+        moveSpeed += speedBuff;
     }
 
     private void FixedUpdate()

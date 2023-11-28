@@ -15,6 +15,12 @@ public class PlayerHP : MonoBehaviour
         currentHP = maxHP;
     }
 
+    public void IncreaseHP(int healthBuff)
+    {
+        maxHP += healthBuff;
+        currentHP += healthBuff;
+    }
+
     public void TakeDamage(int amount)
     {
         currentHP -= amount;
