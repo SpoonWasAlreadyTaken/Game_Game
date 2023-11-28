@@ -6,7 +6,9 @@ public class PlayerHP : MonoBehaviour
 {
     public int maxHP;
     public int currentHP;
+    public GameManager GameManager;
 
+    private bool isDead;
 
     void Start()
     {
@@ -17,9 +19,12 @@ public class PlayerHP : MonoBehaviour
     {
         currentHP -= amount;
 
-        if (currentHP <= 0)
+        if (currentHP <= 0 && !isDead)
         {
+            isDead = true;
             Debug.Log("Dead");
+            Destroy(gameObject);
+            GameManager.gameOver();
         }
     }
 
