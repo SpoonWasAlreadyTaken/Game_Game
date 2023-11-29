@@ -8,6 +8,7 @@ public class DamageColl : MonoBehaviour, ICollect
     PlayerCombat player;
     public int damageBuff = 1;
 
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCombat>();

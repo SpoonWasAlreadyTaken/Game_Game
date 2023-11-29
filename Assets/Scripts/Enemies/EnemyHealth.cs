@@ -7,6 +7,10 @@ public class EnemyHealth : MonoBehaviour
     public int maxHP = 100;
     private int currentHP;
 
+    public GameObject buffDrop;
+    Vector3 centerPosition;
+
+
 
     void Start()
     {
@@ -25,9 +29,12 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Trent Dead");
+        Debug.Log("Enemy Dead");
 
+        centerPosition = transform.position + new Vector3(0f, 1.5f, 0f);
         Destroy(gameObject);
+        Instantiate(buffDrop, centerPosition, transform.rotation);
+
     }
 
 

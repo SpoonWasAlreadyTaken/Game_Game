@@ -8,6 +8,7 @@ public class KnightAI : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     private GameObject PlayerCharacter;
+    public DirectionFinder Directions;
 
     public float horizontal = 0f;
     public float Speed = 5f;
@@ -20,7 +21,7 @@ public class KnightAI : MonoBehaviour
     private float timer1;
     private float randomDir;
     private float randomInter = 2f;
-    private float generalCD = 1f;
+    public float generalCD = 2f;
     public float detectionRange = 10f;
 
     Vector2 movement;
@@ -46,7 +47,7 @@ public class KnightAI : MonoBehaviour
         }
         else
         {
-            horizontal = 0;
+            PlayerChase();
         }
 
         if (jump)
@@ -106,6 +107,20 @@ public class KnightAI : MonoBehaviour
         }
     }
 
+    void PlayerChase()
+    {
+        timer1 -= Time.deltaTime;
+
+        horizontal = Directions.Direction;
+
+        if (timer1 < 0)
+        {
+            jump = Directions.Above;
+            timer1 = generalCD;
+        }
+    }
+
+    
 
     void flip()
     {
