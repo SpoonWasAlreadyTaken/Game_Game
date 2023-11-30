@@ -186,4 +186,4 @@ MonoBehaviour:
   PlayerCharacter: {fileID: 0}
   projectileSpeed: 15
   Damage: 1
-  projectileLife: 12
+  projectileLife: 6
