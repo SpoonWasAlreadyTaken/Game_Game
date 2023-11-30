@@ -10,6 +10,7 @@ public class TrentProjectileScript : MonoBehaviour
     public int Damage = 1;
     public float projectileLife = 5f;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,11 +36,18 @@ public class TrentProjectileScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D hitInfo)
     {
         PlayerHP player = hitInfo.GetComponent<PlayerHP>();
+
         if (player != null)
         {
             player.TakeDamage(Damage);
             Destroy(gameObject);
         }
+
+        if (hitInfo.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
+
 
 }

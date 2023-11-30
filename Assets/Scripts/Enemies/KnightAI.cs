@@ -5,10 +5,11 @@ using System;
 
 public class KnightAI : MonoBehaviour
 {
-    public Animator animator;
+    public Animator animator = null;
     public Rigidbody2D rb;
     private GameObject PlayerCharacter;
-    public DirectionFinder Directions;
+    public DirectionFinder Directions = null;
+    public bool hasAnimation = false;
 
     public float horizontal = 0f;
     public float Speed = 5f;
@@ -17,12 +18,15 @@ public class KnightAI : MonoBehaviour
     bool FaceR = true;
 
     public bool playerInRange = false;
+    public bool playerTooClose = false;
+    public float tooClose = 1f;
     private float timer;
     private float timer1;
     private float randomDir;
     private float randomInter = 2f;
     public float generalCD = 2f;
     public float detectionRange = 10f;
+    public int dontRunAway = 1;
 
     Vector2 movement;
     [SerializeField] private LayerMask groundLayer;
@@ -52,15 +56,20 @@ public class KnightAI : MonoBehaviour
 
         if (jump)
         {
-            animator.SetTrigger("Jump");
-
+            if (hasAnimation)
+            {
+                animator.SetTrigger("Jump");
+            }
             rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
 
             jump = false;
         }
 
         flip();
-        animator.SetFloat("Moving", Mathf.Abs(horizontal));
+        if (hasAnimation)
+        {
+            animator.SetFloat("Moving", Mathf.Abs(horizontal));
+        }
     }
 
     private bool IsWalled()
@@ -86,7 +95,6 @@ public class KnightAI : MonoBehaviour
             }
 
             float distance = Vector2.Distance(transform.position, PlayerCharacter.transform.position);
-
             if (distance < detectionRange)
             {
                 playerInRange = true;
@@ -94,6 +102,16 @@ public class KnightAI : MonoBehaviour
             else
             {
                 playerInRange = false;
+            }
+
+            float distanceTooClose = Vector2.Distance(transform.position, PlayerCharacter.transform.position);
+            if (distanceTooClose < tooClose)
+            {
+                playerTooClose = true;
+            }
+            else
+            {
+                playerTooClose = false;
             }
         }
 
@@ -109,9 +127,16 @@ public class KnightAI : MonoBehaviour
 
     void PlayerChase()
     {
-        timer1 -= Time.deltaTime;
+        if (!playerTooClose)
+        {
+            timer1 -= Time.deltaTime;
 
-        horizontal = Directions.Direction;
+            horizontal = Directions.Direction * dontRunAway;
+        }
+        else
+        {
+            horizontal = 0;
+        }
 
         if (timer1 < 0)
         {
@@ -129,5 +154,12 @@ public class KnightAI : MonoBehaviour
             FaceR = !FaceR;
             transform.Rotate(0f, 180f, 0f);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, tooClose);
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.DrawWireSphere(wallCheck.position, 0.2f);
     }
 }
