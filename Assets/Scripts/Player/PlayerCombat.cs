@@ -25,6 +25,10 @@ public class PlayerCombat : MonoBehaviour
     {
         attackSpeed += attackBuff;
     }
+    public void IncreaseRange(float rangeBuff)
+    {
+        attackRange += rangeBuff;
+    }
 
     void Update()
     {

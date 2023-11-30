@@ -5,7 +5,6 @@ using System;
 
 public class SpeedColl : MonoBehaviour, ICollect
 {
-
     PlayerMover player;
     public int speedBuff = 1;
 
@@ -21,5 +20,4 @@ public class SpeedColl : MonoBehaviour, ICollect
 
         player.GetComponent<PlayerMover>().IncreaseSpeed(speedBuff);
     }
-
 }
