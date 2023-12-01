@@ -99,7 +99,10 @@ public class ChargeAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        attack();
+        if (charging)
+        {
+            attack();
+        }
     }
 
     private void OnDrawGizmos()

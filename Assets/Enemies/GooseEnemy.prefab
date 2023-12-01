@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3225579459136552250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GooseAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5540418256753902180}
   - component: {fileID: 7100437308241185722}
   - component: {fileID: 7187379037723994582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GooseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 20
-  buffDrop: {fileID: 0}
+  buffDrop: {fileID: 3575601573495100556, guid: 89ed7ee350c2be64db72e9694623f3ac, type: 3}
 --- !u!114 &7187379037723994582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   detectionRange: 10
   chargeUp: 1
   chargeDelay: 0.5
-  chargeCD: 8
+  chargeCD: 5
   chargeDuration: 0.3
   disableMovement: 0
   chargeTimes: 5

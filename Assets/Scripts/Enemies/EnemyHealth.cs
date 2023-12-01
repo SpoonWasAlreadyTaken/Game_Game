@@ -10,11 +10,15 @@ public class EnemyHealth : MonoBehaviour
     public GameObject buffDrop;
     Vector3 centerPosition;
 
+    public bool isKingGoose = false;
+    private GameManager GameManager;
 
 
-    void Start()
+
+    void Awake()
     {
         currentHP = maxHP;
+        GameManager = FindObjectOfType<GameManager>();
     }
 
     public void TakeDamage(int Damage)
@@ -34,6 +38,12 @@ public class EnemyHealth : MonoBehaviour
         centerPosition = transform.position + new Vector3(0f, 1.5f, 0f);
         Destroy(gameObject);
         Instantiate(buffDrop, centerPosition, transform.rotation);
+
+        if (isKingGoose)
+        {
+            Debug.Log("King Goose is Dead");
+            GameManager.gameVictory();
+        }
 
     }
 

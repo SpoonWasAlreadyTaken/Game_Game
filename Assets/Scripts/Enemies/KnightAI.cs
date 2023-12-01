@@ -91,7 +91,7 @@ public class KnightAI : MonoBehaviour
             {
                 jump = true;
                 timer1 = generalCD;
-                Debug.Log("Jump");
+                //Debug.Log("Jump");
             }
 
             float distance = Vector2.Distance(transform.position, PlayerCharacter.transform.position);
@@ -121,7 +121,7 @@ public class KnightAI : MonoBehaviour
 
             System.Random random = new System.Random();
             randomDir = random.Next(-1, 2);
-            Debug.Log(randomDir);
+            //Debug.Log(randomDir);
         }
     }
 

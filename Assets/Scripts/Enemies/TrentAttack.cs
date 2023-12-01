@@ -33,4 +33,9 @@ public class TrentAttack : MonoBehaviour
         }
     }
 
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackOrigin.position, attackDistance);
+    }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5928909714193598452}
   - component: {fileID: 8897548229235245292}
   - component: {fileID: 5255291250094867842}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OctoEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 30
-  buffDrop: {fileID: 0}
+  buffDrop: {fileID: 8731443160251433470, guid: 61bde7758aea33745baa410bea67d4c5, type: 3}
 --- !u!114 &5255291250094867842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2510072866083644340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OctoAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

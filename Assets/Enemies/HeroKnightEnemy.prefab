@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27df5b95dfb92c24ca998106899c0600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 80
   buffDrop: {fileID: 8007886603926008254, guid: a4521962c055ab6478c7502203d74171, type: 3}
 --- !u!1 &4505564231730254231
 GameObject:
