@@ -28,4 +28,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Restarted");
     }
 
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
 }
