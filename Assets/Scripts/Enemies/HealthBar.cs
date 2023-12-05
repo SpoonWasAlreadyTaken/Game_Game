@@ -9,13 +9,10 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Camera camera;
 
 
-    public void UpdateHealthBar(int currentValue, int maxValue)
+    public void UpdateHealthBar(float currentValue, float maxValue)
     {
-        float c = currentValue;
-        float m = maxValue;
-
-        slider.value = c / m;
-        Debug.Log(c / m);
+        slider.value = currentValue / maxValue;
+        Debug.Log(currentValue / maxValue);
     }
 
     void Update()
