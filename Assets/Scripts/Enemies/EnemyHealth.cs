@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHP = 100;
-    private int currentHP;
+    [SerializeField] private int currentHP;
     public int weight = 1;
+
 
     public GameObject buffDrop;
     Vector3 centerPosition;
@@ -15,13 +16,15 @@ public class EnemyHealth : MonoBehaviour
     private GameManager GameManager;
     private GameObject enemySpawner;
 
-
+    [SerializeField] HealthBar healthBar;
 
     void Awake()
     {
         currentHP = maxHP;
         GameManager = FindObjectOfType<GameManager>();
         enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner");
+
+        healthBar = GetComponentInChildren<HealthBar>();
     }
 
     public void TakeDamage(int Damage)
@@ -31,6 +34,11 @@ public class EnemyHealth : MonoBehaviour
         if(currentHP <= 0)
         {
             Die();
+        }
+
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(currentHP, maxHP);
         }
     }
 
