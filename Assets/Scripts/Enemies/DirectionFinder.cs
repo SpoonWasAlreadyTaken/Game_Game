@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class DirectionFinder : MonoBehaviour
 {
+    [SerializeField] private GameObject playerObject;
     [SerializeField] private Transform player;
     public float Direction;
     public bool Above;
 
 
-
+    private void Awake()
+    {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = playerObject.transform.Find("playerTransform");
+    }
 
 
     void FixedUpdate()

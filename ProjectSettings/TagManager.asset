@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - GooseKing
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX
