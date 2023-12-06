@@ -9,6 +9,7 @@ public class PlayerHP : MonoBehaviour
     public GameManager GameManager;
 
     private bool isDead;
+    [SerializeField] AudioSource deathSound;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class PlayerHP : MonoBehaviour
             Debug.Log("Dead");
             Destroy(gameObject);
             GameManager.gameOver();
+            deathSound.Play();
         }
     }
 

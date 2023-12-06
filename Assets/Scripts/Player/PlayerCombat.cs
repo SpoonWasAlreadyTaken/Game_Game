@@ -15,6 +15,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackSpeed = 2f;
     private float nextAttackTime = 0f;
 
+    [SerializeField] private AudioSource attackSound;
 
     public void IncreaseDamage(int damageBuff)
     {
@@ -38,6 +39,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackSpeed;
+                attackSound.Play();
             }
         }
     }
